@@ -161,21 +161,35 @@
          *
          */
         init: function() {
-            var self = this;
 
-            this.$triggerOrigin.on(self.settings.on + "." + self._name, function() {
+            var plugin = this;
 
-                console.group('Rolagem afetando o elemento#' + self._instance_id + '.');
+            this.$triggerOrigin.on(plugin.settings.on + "." + plugin._name, function() {
 
-                if (self.inScreen()) {
-                    window.requestAnimationFrame(function() {
-                        self.$el.css("transform", "translateY(" + $window.scrollTop() / 2 + "px)");
-                    });
-                }
-
-                console.groupEnd();
+                plugin.parallaxTranslate();
 
             });
+
+            plugin.parallaxTranslate();
+
+        },
+        parallaxTranslate: function () {
+
+            var plugin = this;
+
+            console.group('parallaxTranslate no elemento#' + plugin._instance_id + '.');
+
+            if (plugin.inScreen()) {
+                window.requestAnimationFrame(function() {
+
+                    var offset = $window.scrollTop() - plugin.$el.offset().top;
+
+                    plugin.$el.css("transform", "translateY(" + offset / 2 + "px)");
+
+                });
+            }
+
+            console.groupEnd();
 
         },
         /**
