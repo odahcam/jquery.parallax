@@ -1,22 +1,15 @@
-/**
- * @author Luiz Filipe Machado Barni (odahcam) <luiz@odahcam.com>
- * @boilerplateVersion 1.0.3
- */
-;
-/*
- * The semi-colon before function invocation is a safety net against concatenated
- * scripts and/or other plugins which may not be closed properly.
- */
 
-/**
- *
+/**!
+ * @author odahcam
+ * @see The boilerplate used here was https://github.com/odahcam/jQueryPlugin-Boilerplate
+ * @src https://github.com/odahcam/jquery.parallax/
  * @param {object} $
  * @param {object} window
  * @param {object} document
  * @param {undefined} undefined
- * @returns {undefined}
+ * @returns {}
  */
-(function ($, window, document, undefined) {
+!function ($, window, document, undefined) {
 
     /*
      * undefined is used here as the undefined global variable in ECMAScript 3 is
@@ -249,4 +242,4 @@
         listenTo: window,
         sceneMode: false
     };
-})(window.jQuery || false, window, document);
+}(window.jQuery || false, window, document);
